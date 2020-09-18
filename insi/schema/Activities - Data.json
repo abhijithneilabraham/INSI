@@ -1,0 +1,14 @@
+{
+    "name": "Activities",
+    "columns":
+    [
+        {
+        "name": "Activity Type Chapter",
+        "keywords": ["Type Chapter", "Chapter"]
+        },
+        {
+        "name": "Percentage Value per Year",
+        "keywords": ["Percentage Value", "percent value", "Value per Year", "Percentage Value per Year", "Percentage per Year"]
+        }
+    ]
+}

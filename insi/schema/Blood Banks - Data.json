@@ -1,0 +1,16 @@
+{
+    "name": "Blood Banks",
+    "keywords":["Blood Banks"],
+    "columns":
+    [
+        {
+        "name": "Unit Type",
+        "keywords": ["Blood Group", "Blood Type"]
+        },
+        {
+        "name": "Units Count",
+        "keywords": ["Unit Count", "count of units"]
+
+        }
+    ]
+}

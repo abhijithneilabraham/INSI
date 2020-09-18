@@ -3,9 +3,9 @@ Text analysis tool to provide insights.
 
 Combines the information from a text and csv to provides insights.
 
-Built on top of :
-[Question Generator](https://github.com/patil-suraj/question_generation) #Generates questions from input text.
-[tableQA](https://github.com/abhijithneilabraham/tableQA) #Applies the natural language queries to csv files.
+Built on top of :   
+[Question Generator](https://github.com/patil-suraj/question_generation) :Generates questions from input text.   
+[tableQA](https://github.com/abhijithneilabraham/tableQA) :Applies the natural language queries to csv files.
 
 
 ### Configuration
@@ -14,6 +14,7 @@ Built on top of :
 
 ```cd insi```
 
+### Quickstart
 ```
 from insi import insi
 nlp=insi()

@@ -19,10 +19,11 @@ class insi:
     def get_results(self,text,csv_path,schema=None):
         questions=self.get_questions(text)
         agent=Agent(csv_path,schema)
+        valmaps={}
         for q in questions:
             res=agent.query_db(q)
-            print("Question:{}, Result :{}".format(q,res))
-        
+            valmaps[q]=res
+        return valmaps
         
     
         

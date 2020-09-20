@@ -7,11 +7,44 @@ qg = pipeline("e2e-qg")
 
 
 class insi:
+    """
+    Get insights from texts 
+    """
     def get_scores(self,questions):
+        """
+        
+
+        Parameters
+        ----------
+        questions : `list` or `tuple` of `str`
+            Each string is a question.
+
+        Returns
+        -------
+        `dict`
+            Maps questions with scores
+
+        """
         self.qmaps=score_questions(questions)
         return self.qmaps
     
     def get_questions(self,text,csv=False):
+        """
+        
+
+        Parameters
+        ----------
+        text : `str`
+            Input text to be processed.
+        csv : Boolean, optional
+            DESCRIPTION. The default is False.
+
+        Returns
+        -------
+        `list`
+            `list` of strings containing questions .
+
+        """
         questions=qg(text)
         if csv:
             qmaps=self.get_scores(questions)
@@ -19,8 +52,25 @@ class insi:
             return picked_questions
         return questions
     
-    def get_results(self,text,csv_path=None,schema=None):
-       
+    def get_results(self,text,csv_path=None,schema_path=None):
+        """
+        
+
+        Parameters
+        ----------
+        text : `str`
+            Input text to be processed.
+        csv_path : `str` or `pathlib.Path` object, absolute path to folder containing all input files. Optional
+        schema_path: `str` or `pathlib.Path` object, path to folder containing `json` schemas of input files. 
+                    If not specified, auto-generated schema will be used.Optional
+
+
+        Returns
+        -------
+        valmaps : `dict`
+            Maps questions with generated answers.
+
+        """
         
         valmaps={}
         if csv_path:

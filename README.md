@@ -1,5 +1,5 @@
 # INSI
-Text analysis tool to provide insights. 
+Text analysis tool to provide insights.
 
 Automatically generates questions and answers from an input text  to provide insights.
 
@@ -30,14 +30,7 @@ Using csv file(s) related to the text could help build more insights.The sample 
 
 
 ```
-from insi import insi
-nlp=insi()
-text="A large number of cancer patients died.Many deaths were caused by stomach cancer."
 nlp.get_results(text,csv_path,schema_path)
 
 #{'How many cancer patients died?': [(2431,)], 'How many deaths were caused by stomach cancer?': [(179,)]}
 ```
-
-
-
-

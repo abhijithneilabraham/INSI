@@ -25,8 +25,7 @@ nlp=insi()
 text="A large number of cancer patients died.Many deaths were caused by stomach cancer."
 nlp.get_results(text,csv_path,schema_path)
 
-# Question:How many cancer patients died?, Result :[(2431,)]
-# Question:How many deaths were caused by stomach cancer?, Result :[(179,)]
+#{'How many cancer patients died?': [(2431,)], 'How many deaths were caused by stomach cancer?': [(179,)]}
 ```
 
 

@@ -52,7 +52,7 @@ class insi:
             return picked_questions
         return questions
     
-    def get_results(self,text,csv_path=None,schema_path=None):
+    def get_results(self,text,csv_dir=None,schema_dir=None):
         """
         
 
@@ -75,7 +75,7 @@ class insi:
         valmaps={}
         if csv_path:
             questions=self.get_questions(text,csv=True)
-            agent=Agent(csv_path,schema)
+            agent=Agent(csv_path,schema_dir)
             
             for q in questions:
                 res=agent.query_db(q)

@@ -73,9 +73,9 @@ class insi:
         """
         
         valmaps={}
-        if csv_path:
+        if csv_dir:
             questions=self.get_questions(text,csv=True)
-            agent=Agent(csv_path,schema_dir)
+            agent=Agent(csv_dir,schema_dir)
             
             for q in questions:
                 res=agent.query_db(q)

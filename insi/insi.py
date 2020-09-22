@@ -78,8 +78,11 @@ class insi:
             agent=Agent(csv_dir,schema_dir)
             
             for q in questions:
-                res=agent.query_db(q)
-                valmaps[q]=res
+                try:
+                    res=agent.query_db(q)
+                    valmaps[q]=res
+                except:
+                    pass
        
         else:
             questions=self.get_questions(text)

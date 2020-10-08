@@ -65,15 +65,14 @@ class insi:
             raise Exception("Unsupported filetype")
         return text
     
-    def get_results(self,text=None,text_dir=None,csv_dir=None,schema_dir=None):
+    def get_results(self,text,csv_dir=None,schema_dir=None):
         """
         
 
         Parameters
         ----------
-        text : `str`
-            Input text to be processed. Overridden if text_path is provided
-        text_path : `str` or `pathlib.Path` object, path to file(.txt/.docx) containing textual information. Either text_path or text is required. 
+        text : `str` or `pathlib.Path` object.
+            Input text to be processed or path to file(.txt/.docx) containing textual information.
         csv_path : `str` or `pathlib.Path` object, absolute path to folder containing all input files. Optional
         schema_path: `str` or `pathlib.Path` object, path to folder containing `json` schemas of input files. 
                     If not specified, auto-generated schema will be used.Optional
@@ -88,8 +87,8 @@ class insi:
         
         valmaps={}
         
-        if text_dir:
-            text=self.__text_process(text_dir)
+        if os.path.isfile(text):
+            text=self.__text_process(text)
         
         if csv_dir:
             questions=self.get_questions(text,csv=True)

@@ -3,6 +3,7 @@ from utils import score_questions
 from tableqa.agent import Agent
 from tableqa.nlp import qa
 import os
+import textract
 qg = pipeline("e2e-qg")
 
 
@@ -52,14 +53,26 @@ class insi:
             return picked_questions
         return questions
     
+    def __text_process(self,text_dir):
+        ext = str(text_dir).split(".")[-1]
+
+        if ext=='txt':
+            with open(text_dir,mode='r') as f:
+                text = f.read()
+        elif ext=='docx':
+            text = textract.process(text_dir).decode('utf-8')
+        else:
+            raise Exception("Unsupported filetype")
+        return text
+    
     def get_results(self,text,csv_dir=None,schema_dir=None):
         """
         
 
         Parameters
         ----------
-        text : `str`
-            Input text to be processed.
+        text : `str` or `pathlib.Path` object.
+            Input text to be processed or path to file(.txt/.docx) containing textual information.
         csv_path : `str` or `pathlib.Path` object, absolute path to folder containing all input files. Optional
         schema_path: `str` or `pathlib.Path` object, path to folder containing `json` schemas of input files. 
                     If not specified, auto-generated schema will be used.Optional
@@ -73,6 +86,10 @@ class insi:
         """
         
         valmaps={}
+        
+        if os.path.isfile(text):
+            text=self.__text_process(text)
+        
         if csv_dir:
             questions=self.get_questions(text,csv=True)
             agent=Agent(csv_dir,schema_dir)
